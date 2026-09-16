@@ -59,7 +59,7 @@ function App() {
           <div className="shi-logo">
             <span className="shi-logo-icon"></span>
             <span className="shi-logo-text">
-              <span className="font-display">CHEFHQ</span>
+              <span className="font-display">FawareOS</span>
               <span className="uppercase-mono" style={{ opacity: 0.6 }}>Kitchen OS</span>
             </span>
           </div>
@@ -255,13 +255,13 @@ function App() {
                   <li>Weekly Menu Planner</li>
                 </ul>
                 <div style={{ marginTop: 'auto', paddingTop: '1.5rem' }}>
-                  <Button 
-                    variant="outline" 
-                    style={{ width: '100%' }} 
+                  <Button
+                    variant="outline"
+                    style={{ width: '100%' }}
                     onClick={() => window.open(
-                      isAnnual 
-                        ? 'https://buy.stripe.com/test_4gMcN5gZf9z0aBUgqE3ks01' 
-                        : 'https://buy.stripe.com/test_cNicN524l7qSaBU2zO3ks04', 
+                      isAnnual
+                        ? 'https://buy.stripe.com/test_4gMcN5gZf9z0aBUgqE3ks01'
+                        : 'https://buy.stripe.com/test_cNicN524l7qSaBU2zO3ks04',
                       '_blank'
                     )}
                   >
@@ -289,13 +289,13 @@ function App() {
                   <li>Network Collaboration</li>
                 </ul>
                 <div style={{ marginTop: 'auto', paddingTop: '1.5rem' }}>
-                  <Button 
-                    variant="primary" 
-                    style={{ width: '100%' }} 
+                  <Button
+                    variant="primary"
+                    style={{ width: '100%' }}
                     onClick={() => window.open(
-                      isAnnual 
-                        ? 'https://buy.stripe.com/test_fZu5kD10h4eG4dw1vK3ks00' 
-                        : 'https://buy.stripe.com/test_6oU14nbEV6mO9xQ5M03ks03', 
+                      isAnnual
+                        ? 'https://buy.stripe.com/test_fZu5kD10h4eG4dw1vK3ks00'
+                        : 'https://buy.stripe.com/test_6oU14nbEV6mO9xQ5M03ks03',
                       '_blank'
                     )}
                   >
