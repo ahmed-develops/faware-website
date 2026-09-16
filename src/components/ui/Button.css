@@ -1,0 +1,114 @@
+.shi-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 2.75rem; /* 44px */
+  padding: 0 1.25rem;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  transition: all 0.2s ease-in-out;
+  border: var(--border-width) solid var(--color-sumi);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.shi-button:active {
+  transform: translateY(1px);
+}
+
+.shi-button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* Primary: Shu fill, wipes to Sumi on hover */
+.shi-button-primary {
+  background-color: var(--color-shu);
+  color: var(--color-paper);
+}
+
+.shi-button-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-sumi);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: -1;
+}
+.shi-button-primary:hover::before {
+  transform: translateX(100%);
+}
+.shi-button-primary:hover {
+  color: var(--color-paper);
+}
+
+/* Secondary: Paper fill, wipes to Sumi on hover */
+.shi-button-secondary {
+  background-color: var(--color-paper);
+  color: var(--color-sumi);
+}
+.shi-button-secondary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-sumi);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: -1;
+}
+.shi-button-secondary:hover::before {
+  transform: translateX(100%);
+}
+.shi-button-secondary:hover {
+  color: var(--color-paper);
+}
+
+/* Outline: Transparent, Shu border, solid Shu on hover */
+.shi-button-outline {
+  background-color: transparent;
+  color: var(--color-shu);
+  border-color: var(--color-shu);
+}
+.shi-button-outline:hover {
+  background-color: var(--color-shu);
+  color: var(--color-paper);
+}
+
+/* Ghost: No borders, brush underline */
+.shi-button-ghost {
+  border: none;
+  background-color: transparent;
+  color: var(--color-sumi);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  padding: 0.5rem;
+  height: auto;
+  position: relative;
+}
+.shi-button-ghost::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: var(--border-width);
+  background-color: var(--color-sumi);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+.shi-button-ghost:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}

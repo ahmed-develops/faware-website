@@ -1,0 +1,64 @@
+.shi-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+
+/* Solid */
+.shi-badge-solid {
+  background-color: var(--color-sumi);
+  color: var(--color-paper);
+  border: var(--border-width) solid var(--color-sumi);
+}
+
+/* Outline */
+.shi-badge-outline {
+  background-color: var(--color-paper);
+  color: var(--color-sumi);
+  border: var(--border-width) solid var(--color-sumi);
+}
+
+/* Dot */
+.shi-badge-dot {
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--color-sumi);
+}
+
+.shi-dot-container {
+  position: relative;
+  display: flex;
+  width: 0.625rem;
+  height: 0.625rem;
+}
+
+.shi-dot-solid {
+  width: 0.625rem;
+  height: 0.625rem;
+  background-color: var(--color-shu);
+  border-radius: 0; /* Square dot for ink style */
+}
+
+.shi-dot-ping {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-shu);
+  opacity: 0.6;
+  animation: shi-ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes shi-ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
