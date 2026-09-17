@@ -15,7 +15,8 @@
 
 .shi-header-content {
   margin: 0 auto;
-  max-width: 72rem; /* max-w-6xl */
+  max-width: 72rem;
+  /* max-w-6xl */
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -73,6 +74,7 @@
 .shi-nav-link {
   position: relative;
 }
+
 .shi-nav-link::after {
   content: '';
   position: absolute;
@@ -85,6 +87,7 @@
   transform-origin: right;
   transition: transform 0.3s ease;
 }
+
 .shi-nav-link:hover::after {
   transform: scaleX(1);
   transform-origin: left;
@@ -136,6 +139,7 @@
   align-items: center;
   gap: 0.75rem;
 }
+
 .shi-kicker-dash {
   height: var(--border-width);
   width: 2rem;
@@ -147,6 +151,7 @@
   font-size: 52px;
   line-height: 0.92;
 }
+
 @media (min-width: 640px) {
   .shi-headline {
     font-size: 84px;
@@ -189,7 +194,8 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  mix-blend-mode: multiply; /* Optional: blends image with paper deep color */
+  mix-blend-mode: multiply;
+  /* Optional: blends image with paper deep color */
 }
 
 @media (min-width: 768px) {
@@ -255,6 +261,7 @@
   font-size: 18px;
   font-weight: 700;
 }
+
 .shi-footer-col:not(:last-child) {
   border-right: var(--border-width) solid var(--color-sumi);
 }
@@ -289,7 +296,8 @@
   margin: 0 0.25rem;
   height: 1px;
   flex: 1;
-  background-color: rgba(42, 41, 38, 0.3); /* sumi/30 */
+  background-color: rgba(42, 41, 38, 0.3);
+  /* sumi/30 */
 }
 
 .shi-section-meta {
@@ -298,7 +306,9 @@
 }
 
 @media (min-width: 640px) {
-  .shi-section-divider, .shi-section-meta {
+
+  .shi-section-divider,
+  .shi-section-meta {
     display: block;
   }
 }
@@ -319,11 +329,13 @@
 .shi-card {
   border: var(--border-width) solid var(--color-sumi);
   background-color: var(--color-paper);
-  transition: background-color 0.3s;
+  transition: all 0.3s ease;
 }
 
 .shi-card:hover {
   background-color: var(--color-paper-deep);
+  transform: translateY(-4px) translateX(-4px);
+  box-shadow: 6px 6px 0px var(--color-sumi);
 }
 
 .shi-card-header {
@@ -377,6 +389,7 @@
   width: 100%;
   height: 200px;
 }
+
 @media (min-width: 768px) {
   .shi-banner-visual {
     width: 200px;
@@ -408,6 +421,7 @@
 .shi-banner-action {
   display: flex;
 }
+
 @media (min-width: 768px) {
   .shi-banner-action {
     width: 250px;
@@ -495,7 +509,8 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(42, 41, 38, 0.5); /* sumi with opacity */
+  background-color: rgba(42, 41, 38, 0.5);
+  /* sumi with opacity */
   z-index: 100;
   display: flex;
   align-items: center;
@@ -517,6 +532,7 @@
     opacity: 0;
     transform: translateY(10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -539,6 +555,7 @@
   color: var(--color-sumi);
   opacity: 0.6;
 }
+
 .shi-modal-close:hover {
   opacity: 1;
 }
@@ -573,4 +590,445 @@
   align-items: center;
   text-align: center;
   gap: 1rem;
+}
+
+/* Generative Cuisine Animation Styles */
+.shi-card-clickable {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.shi-card-clickable:hover {
+  transform: translateY(-6px) translateX(-6px);
+  box-shadow: 8px 8px 0px var(--color-sumi);
+}
+
+.shi-gen-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+  background-color: var(--color-paper-deep);
+  border: 1px solid var(--color-sumi);
+  position: relative;
+  overflow: hidden;
+}
+
+.shi-gen-icon {
+  font-size: 2.5rem;
+  animation: pulse-glow 2s infinite;
+  margin-bottom: 1.5rem;
+}
+
+.shi-gen-text-wrapper {
+  display: inline-block;
+  max-width: 100%;
+}
+
+.shi-gen-text {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--color-sumi);
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid var(--color-shu);
+  animation: typing 2.5s steps(30, end) infinite, blink-caret 0.75s step-end infinite;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  max-width: 0;
+  vertical-align: bottom;
+}
+
+.shi-gen-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(transparent 50%, rgba(0, 0, 0, 0.02) 50%);
+  background-size: 100% 4px;
+  pointer-events: none;
+  animation: scanlines 10s linear infinite;
+}
+
+@keyframes pulse-glow {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+
+  50% {
+    transform: scale(1.15);
+    opacity: 1;
+    filter: drop-shadow(0 0 8px var(--color-shu));
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+}
+
+@keyframes typing {
+
+  0%,
+  10% {
+    max-width: 0;
+  }
+
+  70%,
+  100% {
+    max-width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+
+  from,
+  to {
+    border-color: transparent;
+  }
+
+  50% {
+    border-color: var(--color-shu);
+  }
+}
+
+@keyframes scanlines {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 0 100%;
+  }
+}
+
+/* Multi-step Animation Classes */
+.shi-fade-in {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.shi-slide-up {
+  animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.shi-gen-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.shi-mic-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  animation: pulse-glow 1.5s infinite;
+}
+
+.shi-speech-bubble {
+  background-color: var(--color-paper);
+  border: 1px solid var(--color-sumi);
+  padding: 1rem 1.5rem;
+  border-radius: 20px 20px 20px 4px;
+  max-width: 85%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+.shi-type-user {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--color-sumi);
+}
+
+.shi-recipe-card {
+  background-color: var(--color-paper);
+  border: 1px solid var(--color-sumi);
+  padding: 1.5rem;
+  width: 100%;
+  text-align: left;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+}
+
+.shi-recipe-card:hover {
+  transform: translateY(-4px) translateX(-4px);
+  box-shadow: 6px 6px 0px var(--color-sumi);
+}
+
+.shi-recipe-card h4 {
+  font-size: 18px;
+  margin-bottom: 0.5rem;
+  color: var(--color-sumi);
+}
+
+.shi-recipe-meta {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  color: var(--color-shu);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px dashed rgba(42, 41, 38, 0.3);
+}
+
+.shi-recipe-ingredients {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  opacity: 0.8;
+  line-height: 1.6;
+}
+
+/* Smart Integration Animation Styles */
+.shi-alert-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.shi-pulse-red {
+  animation: pulse-red 1s infinite;
+}
+
+@keyframes pulse-red {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+    filter: drop-shadow(0 0 5px var(--color-shu));
+  }
+
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+    filter: drop-shadow(0 0 15px var(--color-shu));
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+    filter: drop-shadow(0 0 5px var(--color-shu));
+  }
+}
+
+/* Card Visualizers */
+.shi-card-visual {
+  height: 48px;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+/* 1. Generative Cuisine */
+.anim-cuisine {
+  width: 24px;
+  height: 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  animation: spin 4s linear infinite;
+}
+
+.anim-cuisine div {
+  background: var(--color-sumi);
+  animation: pulse-radius 2s infinite alternate;
+}
+
+.anim-cuisine div:nth-child(4) {
+  background: var(--color-shu);
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse-radius {
+  100% {
+    border-radius: 50%;
+    scale: 0.8;
+  }
+}
+
+/* 2. Dynamic Baskets */
+.anim-baskets {
+  position: relative;
+  width: 32px;
+  height: 24px;
+  border: 2px solid var(--color-sumi);
+  border-top: none;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  padding: 2px;
+}
+
+.anim-baskets div {
+  width: 6px;
+  height: 6px;
+  background: var(--color-sumi);
+  animation: drop-in 2s infinite;
+}
+
+.anim-baskets div:nth-child(2) {
+  animation-delay: 0.4s;
+  background: var(--color-shu);
+}
+
+.anim-baskets div:nth-child(3) {
+  animation-delay: 0.8s;
+}
+
+@keyframes drop-in {
+  0% {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+
+  20% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  80% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+}
+
+/* 3. Menu Orchestration */
+.anim-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.anim-menu div {
+  height: 4px;
+  background: var(--color-sumi);
+  width: 24px;
+  animation: slide-bar 2s infinite ease-in-out alternate;
+}
+
+.anim-menu div:nth-child(1) {
+  width: 32px;
+}
+
+.anim-menu div:nth-child(2) {
+  width: 20px;
+  background: var(--color-shu);
+  animation-delay: -0.5s;
+}
+
+.anim-menu div:nth-child(3) {
+  width: 28px;
+  animation-delay: -1s;
+}
+
+@keyframes slide-bar {
+  0% {
+    transform: translateX(-4px);
+  }
+
+  100% {
+    transform: translateX(8px);
+  }
+}
+
+/* 4. Smart Integration */
+.anim-iot {
+  position: relative;
+  width: 12px;
+  height: 12px;
+  background: var(--color-shu);
+  border-radius: 50%;
+  margin-left: 10px;
+}
+
+.anim-iot::before,
+.anim-iot::after {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  border: 2px solid var(--color-shu);
+  border-radius: 50%;
+  animation: iot-pulse 2s infinite ease-out;
+}
+
+.anim-iot::after {
+  animation-delay: 1s;
+}
+
+@keyframes iot-pulse {
+  0% {
+    transform: scale(0.5);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* 5. Unified Workflows */
+.anim-workflow {
+  display: flex;
+  gap: 4px;
+}
+
+.anim-workflow div {
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--color-sumi);
+  animation: workflow-spin 3s infinite linear;
+}
+
+.anim-workflow div:nth-child(2) {
+  background: var(--color-sumi);
+  animation-direction: reverse;
+}
+
+@keyframes workflow-spin {
+  100% {
+    transform: rotate(90deg);
+  }
 }

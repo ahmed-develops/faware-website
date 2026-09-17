@@ -7,9 +7,80 @@ import './App.css';
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isPartnersModalOpen, setIsPartnersModalOpen] = useState(false);
+  const [isGenCuisineModalOpen, setIsGenCuisineModalOpen] = useState(false);
+  const [genStep, setGenStep] = useState(0);
+  const [isSmartIntModalOpen, setIsSmartIntModalOpen] = useState(false);
+  const [smartStep, setSmartStep] = useState(0);
+  const [isDynamicBasketsModalOpen, setIsDynamicBasketsModalOpen] = useState(false);
+  const [basketsStep, setBasketsStep] = useState(0);
+  const [isMenuOrchestrationModalOpen, setIsMenuOrchestrationModalOpen] = useState(false);
+  const [menuStep, setMenuStep] = useState(0);
+  const [isUnifiedWorkflowsModalOpen, setIsUnifiedWorkflowsModalOpen] = useState(false);
+  const [workflowStep, setWorkflowStep] = useState(0);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isAnnual, setIsAnnual] = useState(true);
   const [currencyInfo, setCurrencyInfo] = useState({ symbol: '$', rate: 1, code: 'USD' });
+
+  useEffect(() => {
+    let t1: NodeJS.Timeout;
+    let t2: NodeJS.Timeout;
+    if (isGenCuisineModalOpen) {
+      setGenStep(0);
+      t1 = setTimeout(() => setGenStep(1), 3500);
+      t2 = setTimeout(() => setGenStep(2), 6500);
+    }
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+    };
+  }, [isGenCuisineModalOpen]);
+
+  useEffect(() => {
+    let t1: NodeJS.Timeout;
+    let t2: NodeJS.Timeout;
+    if (isSmartIntModalOpen) {
+      setSmartStep(0);
+      t1 = setTimeout(() => setSmartStep(1), 3500);
+      t2 = setTimeout(() => setSmartStep(2), 6500);
+    }
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+    };
+  }, [isSmartIntModalOpen]);
+
+  useEffect(() => {
+    let t1: NodeJS.Timeout;
+    let t2: NodeJS.Timeout;
+    if (isDynamicBasketsModalOpen) {
+      setBasketsStep(0);
+      t1 = setTimeout(() => setBasketsStep(1), 3500);
+      t2 = setTimeout(() => setBasketsStep(2), 6500);
+    }
+    return () => { clearTimeout(t1); clearTimeout(t2); };
+  }, [isDynamicBasketsModalOpen]);
+
+  useEffect(() => {
+    let t1: NodeJS.Timeout;
+    let t2: NodeJS.Timeout;
+    if (isMenuOrchestrationModalOpen) {
+      setMenuStep(0);
+      t1 = setTimeout(() => setMenuStep(1), 3500);
+      t2 = setTimeout(() => setMenuStep(2), 6500);
+    }
+    return () => { clearTimeout(t1); clearTimeout(t2); };
+  }, [isMenuOrchestrationModalOpen]);
+
+  useEffect(() => {
+    let t1: NodeJS.Timeout;
+    let t2: NodeJS.Timeout;
+    if (isUnifiedWorkflowsModalOpen) {
+      setWorkflowStep(0);
+      t1 = setTimeout(() => setWorkflowStep(1), 3500);
+      t2 = setTimeout(() => setWorkflowStep(2), 6500);
+    }
+    return () => { clearTimeout(t1); clearTimeout(t2); };
+  }, [isUnifiedWorkflowsModalOpen]);
 
   useEffect(() => {
     fetch('https://ipapi.co/json/')
@@ -125,12 +196,17 @@ function App() {
 
           <div className="shi-grid">
             {/* Feature 1 */}
-            <article className="shi-card group">
+            <article className="shi-card group shi-card-clickable" onClick={() => setIsGenCuisineModalOpen(true)}>
               <div className="shi-card-header">
                 <span className="uppercase-mono" style={{ opacity: 0.6 }}>№ 001 — AI Recipes</span>
                 {/* <HankoSeal text="AI" variant="round" className="scale-75" /> */}
               </div>
               <div className="shi-card-body">
+                <div className="shi-card-visual">
+                  <div className="anim-cuisine">
+                    <div></div><div></div><div></div><div></div>
+                  </div>
+                </div>
                 <h3 className="font-display shi-card-title">Generative Cuisine</h3>
                 <p className="shi-card-text">
                   Generate recipes directly from available inventory to minimize waste, tailored by your uploaded CVs and menus.
@@ -139,12 +215,17 @@ function App() {
             </article>
 
             {/* Feature 2 */}
-            <article className="shi-card group">
+            <article className="shi-card group shi-card-clickable" onClick={() => setIsDynamicBasketsModalOpen(true)}>
               <div className="shi-card-header">
                 <span className="uppercase-mono" style={{ opacity: 0.6 }}>№ 002 — Inventory</span>
                 {/* <Badge variant="dot">Live</Badge> */}
               </div>
               <div className="shi-card-body">
+                <div className="shi-card-visual">
+                  <div className="anim-baskets">
+                    <div></div><div></div><div></div>
+                  </div>
+                </div>
                 <h3 className="font-display shi-card-title">Dynamic Baskets</h3>
                 <p className="shi-card-text">
                   Track produce, meat, dairy, and leftovers. Group items into custom "Baskets" for event prep.
@@ -153,14 +234,53 @@ function App() {
             </article>
 
             {/* Feature 3 */}
-            <article className="shi-card group">
+            <article className="shi-card group shi-card-clickable" onClick={() => setIsMenuOrchestrationModalOpen(true)}>
               <div className="shi-card-header">
                 <span className="uppercase-mono" style={{ opacity: 0.6 }}>№ 003 — Planning</span>
               </div>
               <div className="shi-card-body">
+                <div className="shi-card-visual">
+                  <div className="anim-menu">
+                    <div></div><div></div><div></div>
+                  </div>
+                </div>
                 <h3 className="font-display shi-card-title">Menu Orchestration</h3>
                 <p className="shi-card-text">
                   Organize recipes into structured weekly planners. Automatically compile smart shopping lists from inventory gaps.
+                </p>
+              </div>
+            </article>
+
+            {/* Feature 4 */}
+            <article className="shi-card group shi-card-clickable" onClick={() => setIsSmartIntModalOpen(true)}>
+              <div className="shi-card-header">
+                <span className="uppercase-mono" style={{ opacity: 0.6 }}>№ 004 — IoT Analytics</span>
+              </div>
+              <div className="shi-card-body">
+                <div className="shi-card-visual">
+                  <div className="anim-iot"></div>
+                </div>
+                <h3 className="font-display shi-card-title">Smart Integration</h3>
+                <p className="shi-card-text">
+                  Connect with IoT-enabled kitchen appliances for real-time analytics. Automate temperature logs and trigger proactive operational actions.
+                </p>
+              </div>
+            </article>
+
+            {/* Feature 5 */}
+            <article className="shi-card group shi-card-clickable" onClick={() => setIsUnifiedWorkflowsModalOpen(true)}>
+              <div className="shi-card-header">
+                <span className="uppercase-mono" style={{ opacity: 0.6 }}>№ 005 — Operations</span>
+              </div>
+              <div className="shi-card-body">
+                <div className="shi-card-visual">
+                  <div className="anim-workflow">
+                    <div></div><div></div>
+                  </div>
+                </div>
+                <h3 className="font-display shi-card-title">Unified Workflows</h3>
+                <p className="shi-card-text">
+                  Synchronize back-of-house and front-of-house operations. Manage complex logistics, streamline supply chains, and automate inventory handling.
                 </p>
               </div>
             </article>
@@ -381,6 +501,262 @@ function App() {
                 <li>Harris Farm Markets</li>
                 <li>Bidfood Australia</li>
               </ul>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Generative Cuisine Modal */}
+      {isGenCuisineModalOpen && (
+        <div className="shi-modal-overlay" onClick={() => setIsGenCuisineModalOpen(false)}>
+          <div className="shi-modal" onClick={e => e.stopPropagation()} style={{ maxWidth: '500px' }}>
+            <div className="shi-modal-header border-b-sumi">
+              <h3 className="font-display">Generative Cuisine</h3>
+              <button className="shi-modal-close" onClick={() => setIsGenCuisineModalOpen(false)}>✕</button>
+            </div>
+            <div className="shi-modal-body">
+              <div className="shi-gen-container border-sumi" style={{ height: '300px' }}>
+                {genStep === 0 && (
+                  <div className="shi-gen-step shi-fade-in">
+                    <div className="shi-mic-icon">🎙️</div>
+                    <div className="shi-speech-bubble">
+                      <span className="shi-type-user">"I have 2kg of chicken thigh and leftover carrots. Generate a premium menu."</span>
+                    </div>
+                  </div>
+                )}
+                {genStep === 1 && (
+                  <div className="shi-gen-step shi-fade-in" style={{ textAlign: 'center' }}>
+                    <div className="shi-gen-icon">✨</div>
+                    <div className="shi-gen-text-wrapper">
+                      <span className="shi-gen-text">Crafting dynamic menu...</span>
+                    </div>
+                  </div>
+                )}
+                {genStep === 2 && (
+                  <div className="shi-gen-step shi-slide-up" style={{ width: '100%', padding: '0 1rem' }}>
+                    <div className="shi-recipe-card">
+                      <h4 className="font-display">Chicken Ballotine</h4>
+                      <div className="shi-recipe-meta">Prep: 25m • Waste: 0%</div>
+                      <ul className="shi-recipe-ingredients">
+                        <li>- 2kg Chicken Thigh (Deboned)</li>
+                        <li>- Charred Carrot Purée</li>
+                        <li>- Chicken Jus (from bones)</li>
+                      </ul>
+                    </div>
+                  </div>
+                )}
+                <div className="shi-gen-overlay"></div>
+              </div>
+              <p style={{ marginTop: '1.5rem', fontSize: '14px', opacity: 0.8, textAlign: 'center' }}>
+                {genStep === 0 && "Step 1: Verbally communicate preferences..."}
+                {genStep === 1 && "Step 2: AI cross-references inventory..."}
+                {genStep === 2 && "Step 3: Ready for the line."}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Smart Integration Modal */}
+      {isSmartIntModalOpen && (
+        <div className="shi-modal-overlay" onClick={() => setIsSmartIntModalOpen(false)}>
+          <div className="shi-modal" onClick={e => e.stopPropagation()} style={{ maxWidth: '500px' }}>
+            <div className="shi-modal-header border-b-sumi">
+              <h3 className="font-display">IoT Smart Integration</h3>
+              <button className="shi-modal-close" onClick={() => setIsSmartIntModalOpen(false)}>✕</button>
+            </div>
+            <div className="shi-modal-body">
+              <div className="shi-gen-container border-sumi" style={{ height: '300px' }}>
+                {smartStep === 0 && (
+                  <div className="shi-gen-step shi-fade-in">
+                    <div className="shi-alert-icon shi-pulse-red">⚠️</div>
+                    <div className="shi-recipe-card" style={{ borderLeft: '4px solid var(--color-shu)' }}>
+                      <h4 className="font-display">Walk-in Fridge</h4>
+                      <div className="shi-recipe-meta" style={{ color: 'var(--color-shu)' }}>Status: Critical Alert</div>
+                      <p className="shi-type-user">Temperature anomaly detected: <strong>8°C</strong> (Expected: 3°C).</p>
+                    </div>
+                  </div>
+                )}
+                {smartStep === 1 && (
+                  <div className="shi-gen-step shi-fade-in" style={{ textAlign: 'center' }}>
+                    <div className="shi-gen-icon">✨</div>
+                    <div className="shi-gen-text-wrapper">
+                      <span className="shi-gen-text">AI Intercepting...</span>
+                    </div>
+                  </div>
+                )}
+                {smartStep === 2 && (
+                  <div className="shi-gen-step shi-slide-up" style={{ width: '100%', padding: '0 1rem' }}>
+                    <div className="shi-recipe-card" style={{ borderLeft: '4px solid #4ade80' }}>
+                      <h4 className="font-display">Walk-in Fridge</h4>
+                      <div className="shi-recipe-meta" style={{ color: '#4ade80', borderColor: '#4ade80', opacity: 0.8 }}>Status: Resolved</div>
+                      <p className="shi-type-user">Temperature normalized: <strong>3°C</strong>. Technician dispatched for compressor check.</p>
+                    </div>
+                  </div>
+                )}
+                <div className="shi-gen-overlay"></div>
+              </div>
+              <p style={{ marginTop: '1.5rem', fontSize: '14px', opacity: 0.8, textAlign: 'center' }}>
+                {smartStep === 0 && "Step 1: IoT sensor detects anomaly..."}
+                {smartStep === 1 && "Step 2: AI triggers automated response protocol..."}
+                {smartStep === 2 && "Step 3: Environment stabilized & team notified."}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Dynamic Baskets Modal */}
+      {isDynamicBasketsModalOpen && (
+        <div className="shi-modal-overlay" onClick={() => setIsDynamicBasketsModalOpen(false)}>
+          <div className="shi-modal" onClick={e => e.stopPropagation()} style={{ maxWidth: '500px' }}>
+            <div className="shi-modal-header border-b-sumi">
+              <h3 className="font-display">Dynamic Baskets</h3>
+              <button className="shi-modal-close" onClick={() => setIsDynamicBasketsModalOpen(false)}>✕</button>
+            </div>
+            <div className="shi-modal-body">
+              <div className="shi-gen-container border-sumi" style={{ height: '300px' }}>
+                {basketsStep === 0 && (
+                  <div className="shi-gen-step shi-fade-in">
+                    <div className="shi-mic-icon">📦</div>
+                    <div className="shi-recipe-card">
+                      <h4 className="font-display">New Delivery</h4>
+                      <p className="shi-type-user">Mixed produce and dairy items scanned into inventory.</p>
+                    </div>
+                  </div>
+                )}
+                {basketsStep === 1 && (
+                  <div className="shi-gen-step shi-fade-in" style={{ textAlign: 'center' }}>
+                    <div className="shi-gen-icon">✨</div>
+                    <div className="shi-gen-text-wrapper">
+                      <span className="shi-gen-text">Organizing by expiration...</span>
+                    </div>
+                  </div>
+                )}
+                {basketsStep === 2 && (
+                  <div className="shi-gen-step shi-slide-up" style={{ width: '100%', padding: '0 1rem' }}>
+                    <div className="shi-recipe-card" style={{ borderLeft: '4px solid var(--color-sumi)' }}>
+                      <h4 className="font-display">Weekend Brunch Basket</h4>
+                      <div className="shi-recipe-meta">Auto-grouped • Expires: 2 days</div>
+                      <ul className="shi-recipe-ingredients">
+                        <li>- Organic Eggs (3 dozen)</li>
+                        <li>- Heirloom Tomatoes (2kg)</li>
+                        <li>- Fresh Basil (500g)</li>
+                      </ul>
+                    </div>
+                  </div>
+                )}
+                <div className="shi-gen-overlay"></div>
+              </div>
+              <p style={{ marginTop: '1.5rem', fontSize: '14px', opacity: 0.8, textAlign: 'center' }}>
+                {basketsStep === 0 && "Step 1: Ingredients entered into system..."}
+                {basketsStep === 1 && "Step 2: AI categorizes and creates task-based groupings..."}
+                {basketsStep === 2 && "Step 3: Custom baskets ready for prep."}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Menu Orchestration Modal */}
+      {isMenuOrchestrationModalOpen && (
+        <div className="shi-modal-overlay" onClick={() => setIsMenuOrchestrationModalOpen(false)}>
+          <div className="shi-modal" onClick={e => e.stopPropagation()} style={{ maxWidth: '500px' }}>
+            <div className="shi-modal-header border-b-sumi">
+              <h3 className="font-display">Menu Orchestration</h3>
+              <button className="shi-modal-close" onClick={() => setIsMenuOrchestrationModalOpen(false)}>✕</button>
+            </div>
+            <div className="shi-modal-body">
+              <div className="shi-gen-container border-sumi" style={{ height: '300px' }}>
+                {menuStep === 0 && (
+                  <div className="shi-gen-step shi-fade-in">
+                    <div className="shi-mic-icon">📅</div>
+                    <div className="shi-recipe-card">
+                      <h4 className="font-display">Weekly Plan</h4>
+                      <p className="shi-type-user">Scheduling 15 unique dishes for next week's service.</p>
+                    </div>
+                  </div>
+                )}
+                {menuStep === 1 && (
+                  <div className="shi-gen-step shi-fade-in" style={{ textAlign: 'center' }}>
+                    <div className="shi-gen-icon">✨</div>
+                    <div className="shi-gen-text-wrapper">
+                      <span className="shi-gen-text">Analyzing inventory gaps...</span>
+                    </div>
+                  </div>
+                )}
+                {menuStep === 2 && (
+                  <div className="shi-gen-step shi-slide-up" style={{ width: '100%', padding: '0 1rem' }}>
+                    <div className="shi-recipe-card" style={{ borderLeft: '4px solid var(--color-shu)' }}>
+                      <h4 className="font-display">Smart Shopping List</h4>
+                      <div className="shi-recipe-meta" style={{ color: 'var(--color-shu)' }}>Pending Orders</div>
+                      <ul className="shi-recipe-ingredients">
+                        <li>- Truffle Oil (1L required)</li>
+                        <li>- Arborio Rice (5kg required)</li>
+                        <li>- Saffron Threads (10g required)</li>
+                      </ul>
+                    </div>
+                  </div>
+                )}
+                <div className="shi-gen-overlay"></div>
+              </div>
+              <p style={{ marginTop: '1.5rem', fontSize: '14px', opacity: 0.8, textAlign: 'center' }}>
+                {menuStep === 0 && "Step 1: Set weekly menu structure..."}
+                {menuStep === 1 && "Step 2: System calculates required yield vs current stock..."}
+                {menuStep === 2 && "Step 3: Procurement list automatically generated."}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Unified Workflows Modal */}
+      {isUnifiedWorkflowsModalOpen && (
+        <div className="shi-modal-overlay" onClick={() => setIsUnifiedWorkflowsModalOpen(false)}>
+          <div className="shi-modal" onClick={e => e.stopPropagation()} style={{ maxWidth: '500px' }}>
+            <div className="shi-modal-header border-b-sumi">
+              <h3 className="font-display">Unified Workflows</h3>
+              <button className="shi-modal-close" onClick={() => setIsUnifiedWorkflowsModalOpen(false)}>✕</button>
+            </div>
+            <div className="shi-modal-body">
+              <div className="shi-gen-container border-sumi" style={{ height: '300px' }}>
+                {workflowStep === 0 && (
+                  <div className="shi-gen-step shi-fade-in">
+                    <div className="shi-mic-icon">🔄</div>
+                    <div className="shi-recipe-card">
+                      <h4 className="font-display">FOH Ticket</h4>
+                      <p className="shi-type-user">VIP table orders: 4x Tasting Menu.</p>
+                    </div>
+                  </div>
+                )}
+                {workflowStep === 1 && (
+                  <div className="shi-gen-step shi-fade-in" style={{ textAlign: 'center' }}>
+                    <div className="shi-gen-icon">✨</div>
+                    <div className="shi-gen-text-wrapper">
+                      <span className="shi-gen-text">Synchronizing BOH stations...</span>
+                    </div>
+                  </div>
+                )}
+                {workflowStep === 2 && (
+                  <div className="shi-gen-step shi-slide-up" style={{ width: '100%', padding: '0 1rem' }}>
+                    <div className="shi-recipe-card" style={{ borderLeft: '4px solid #4ade80' }}>
+                      <h4 className="font-display">Station Updates</h4>
+                      <div className="shi-recipe-meta" style={{ color: '#4ade80' }}>All Stations Synced</div>
+                      <ul className="shi-recipe-ingredients">
+                        <li>- Grill: Prep 4x Wagyu</li>
+                        <li>- Garde Manger: 4x Crudo</li>
+                        <li>- Inventory: Deducted automatically</li>
+                      </ul>
+                    </div>
+                  </div>
+                )}
+                <div className="shi-gen-overlay"></div>
+              </div>
+              <p style={{ marginTop: '1.5rem', fontSize: '14px', opacity: 0.8, textAlign: 'center' }}>
+                {workflowStep === 0 && "Step 1: Front-of-house action triggers event..."}
+                {workflowStep === 1 && "Step 2: System orchestrates tasks across departments..."}
+                {workflowStep === 2 && "Step 3: Back-of-house and inventory are instantly aligned."}
+              </p>
             </div>
           </div>
         </div>
