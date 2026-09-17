@@ -22,8 +22,8 @@ function App() {
   const [currencyInfo, setCurrencyInfo] = useState({ symbol: '$', rate: 1, code: 'USD' });
 
   useEffect(() => {
-    let t1: NodeJS.Timeout;
-    let t2: NodeJS.Timeout;
+    let t1: ReturnType<typeof setTimeout>;
+    let t2: ReturnType<typeof setTimeout>;
     if (isGenCuisineModalOpen) {
       setGenStep(0);
       t1 = setTimeout(() => setGenStep(1), 3500);
@@ -36,8 +36,8 @@ function App() {
   }, [isGenCuisineModalOpen]);
 
   useEffect(() => {
-    let t1: NodeJS.Timeout;
-    let t2: NodeJS.Timeout;
+    let t1: ReturnType<typeof setTimeout>;
+    let t2: ReturnType<typeof setTimeout>;
     if (isSmartIntModalOpen) {
       setSmartStep(0);
       t1 = setTimeout(() => setSmartStep(1), 3500);
@@ -50,8 +50,8 @@ function App() {
   }, [isSmartIntModalOpen]);
 
   useEffect(() => {
-    let t1: NodeJS.Timeout;
-    let t2: NodeJS.Timeout;
+    let t1: ReturnType<typeof setTimeout>;
+    let t2: ReturnType<typeof setTimeout>;
     if (isDynamicBasketsModalOpen) {
       setBasketsStep(0);
       t1 = setTimeout(() => setBasketsStep(1), 3500);
@@ -61,8 +61,8 @@ function App() {
   }, [isDynamicBasketsModalOpen]);
 
   useEffect(() => {
-    let t1: NodeJS.Timeout;
-    let t2: NodeJS.Timeout;
+    let t1: ReturnType<typeof setTimeout>;
+    let t2: ReturnType<typeof setTimeout>;
     if (isMenuOrchestrationModalOpen) {
       setMenuStep(0);
       t1 = setTimeout(() => setMenuStep(1), 3500);
@@ -72,8 +72,8 @@ function App() {
   }, [isMenuOrchestrationModalOpen]);
 
   useEffect(() => {
-    let t1: NodeJS.Timeout;
-    let t2: NodeJS.Timeout;
+    let t1: ReturnType<typeof setTimeout>;
+    let t2: ReturnType<typeof setTimeout>;
     if (isUnifiedWorkflowsModalOpen) {
       setWorkflowStep(0);
       t1 = setTimeout(() => setWorkflowStep(1), 3500);
