@@ -130,8 +130,8 @@ function App() {
           <div className="shi-logo">
             <span className="shi-logo-icon"></span>
             <span className="shi-logo-text">
-              <span className="font-display">FawareOS</span>
-              <span className="uppercase-mono" style={{ opacity: 0.6 }}>Kitchen OS</span>
+              <span className="font-display">Faware</span>
+              <span className="uppercase-mono" style={{ opacity: 0.6 }}>Culinary OS</span>
             </span>
           </div>
 
@@ -153,10 +153,10 @@ function App() {
         <section className="shi-hero border-b-sumi">
           <div className="shi-hero-content">
             <div className="shi-hero-text">
-              <div className="shi-kicker">
+              {/* <div className="shi-kicker">
                 <span className="shi-kicker-dash"></span>
                 <span className="uppercase-mono">Next-Gen Culinary OS</span>
-              </div>
+              </div> */}
               <h1 className="shi-headline">
                 Paper.<br />
                 Prep. <span className="text-shu">Perfect.</span>
@@ -166,8 +166,8 @@ function App() {
               </p>
 
               <div className="shi-hero-actions">
-                <Button variant="primary" onClick={() => setIsModalOpen(true)}>Get Early Access ↓</Button>
-                <Button variant="ghost">View Demo</Button>
+                <Button variant="primary" onClick={() => setIsModalOpen(true)}>Get Early Access</Button>
+                {/* <Button variant="ghost">View Demo</Button> */}
               </div>
             </div>
 
@@ -185,10 +185,58 @@ function App() {
           </div>
         </section>
 
+        {/* What Faware Offers Section */}
+        <section id="offers" className="shi-section">
+          <div className="shi-section-header border-y-sumi">
+            <Badge variant="solid">01</Badge>
+            <h2 className="font-display shi-section-title">What Faware Offers</h2>
+            <span className="shi-section-divider"></span>
+            <span className="uppercase-mono shi-section-meta">Platform / Overview</span>
+          </div>
+
+          <div className="shi-grid">
+            <article className="shi-card group">
+              <div className="shi-card-header">
+                <span className="uppercase-mono" style={{ opacity: 0.6 }}>Product — 01</span>
+              </div>
+              <div className="shi-card-body">
+                <h3 className="font-display shi-card-title">ChefHQ</h3>
+                <p className="shi-card-text">
+                  AI assistant sous chef.
+                </p>
+              </div>
+            </article>
+
+            <article className="shi-card group">
+              <div className="shi-card-header">
+                <span className="uppercase-mono" style={{ opacity: 0.6 }}>Product — 02</span>
+              </div>
+              <div className="shi-card-body">
+                <h3 className="font-display shi-card-title">BackHQ</h3>
+                <p className="shi-card-text">
+                  Back of house agentic operations.
+                </p>
+              </div>
+            </article>
+
+            <article className="shi-card group">
+              <div className="shi-card-header">
+                <span className="uppercase-mono" style={{ opacity: 0.6 }}>Product — 03</span>
+              </div>
+              <div className="shi-card-body">
+                <h3 className="font-display shi-card-title">FrontHQ</h3>
+                <p className="shi-card-text">
+                  Front of house agentic operations.
+                </p>
+              </div>
+            </article>
+          </div>
+        </section>
+
         {/* Features Section */}
         <section id="features" className="shi-section">
           <div className="shi-section-header border-y-sumi">
-            <Badge variant="solid">01</Badge>
+            <Badge variant="solid">02</Badge>
             <h2 className="font-display shi-section-title">Core capabilities</h2>
             <span className="shi-section-divider"></span>
             <span className="uppercase-mono shi-section-meta">ChefHQ / Toolkit</span>
@@ -290,7 +338,7 @@ function App() {
         {/* Ecommerce Section */}
         <section id="ecommerce" className="shi-section">
           <div className="shi-section-header border-y-sumi">
-            <Badge variant="solid">02</Badge>
+            <Badge variant="solid">03</Badge>
             <h2 className="font-display shi-section-title">Ecommerce Integration</h2>
             <span className="shi-section-divider"></span>
             <span className="uppercase-mono shi-section-meta">ChefHQ / Trade</span>
@@ -313,7 +361,7 @@ function App() {
         {/* Network Section */}
         <section id="network" className="shi-section">
           <div className="shi-section-header border-y-sumi">
-            <Badge variant="solid">03</Badge>
+            <Badge variant="solid">04</Badge>
             <h2 className="font-display shi-section-title">The Network</h2>
             <span className="shi-section-divider"></span>
             <span className="uppercase-mono shi-section-meta">ChefHQ / Connect</span>
@@ -336,7 +384,7 @@ function App() {
         {/* Pricing Section */}
         <section id="pricing" className="shi-section">
           <div className="shi-section-header border-y-sumi">
-            <Badge variant="solid">04</Badge>
+            <Badge variant="solid">05</Badge>
             <h2 className="font-display shi-section-title">Plans & Pricing</h2>
             <span className="shi-section-divider"></span>
             <span className="uppercase-mono shi-section-meta">ChefHQ / Value</span>
