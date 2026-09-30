@@ -3,12 +3,12 @@
   --color-paper: #e4e3e0;
   --color-sumi: #000000;
   --color-shu: #ef5b68;
-  
+
   --color-paper-deep: #d9d8d5;
   --color-shu-deep: #d64e59;
-  
+
   --border-width: 1.5px;
-  
+
   /* Fonts */
   --font-display: 'Outfit', sans-serif;
   --font-sans: 'Inter', sans-serif;
@@ -34,7 +34,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-display);
   font-weight: 700;
   line-height: 1.1;
