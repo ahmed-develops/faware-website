@@ -45,7 +45,7 @@ const TrypostLanding = () => {
         <div className="tp-navbar-wrapper">
           <nav className="tp-navbar">
             <div className="tp-logo">
-              trypost.it
+              <img src="/logo.png" alt="Faware Logo" style={{ height: '32px' }} />
             </div>
 
             <div className="tp-nav-links">
@@ -267,7 +267,9 @@ const TrypostLanding = () => {
         <footer className="tp-footer">
           <div className="tp-footer-content">
             <div className="tp-footer-brand">
-              <div className="tp-logo">faware</div>
+              <div className="tp-logo">
+                <img src="/logo.png" alt="Faware Logo" style={{ height: '32px' }} />
+              </div>
               <p>The culinary agentic OS powering the next generation of restaurants.</p>
               <div className="tp-social-links">
                 <a href="#" className="tp-social-link"><TwitterIcon size={20} /></a>
