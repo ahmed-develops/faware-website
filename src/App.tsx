@@ -1,9 +1,9 @@
-import TrypostLanding from './TrypostLanding';
 import './App.css';
+import FawareLanding from './FawareLanding';
 
 function App() {
   return (
-    <TrypostLanding />
+    <FawareLanding />
   );
 }
 
