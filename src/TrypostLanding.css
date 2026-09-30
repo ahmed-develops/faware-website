@@ -106,6 +106,10 @@ body, html {
   align-items: center;
 }
 
+.tp-nav-item-with-dropdown {
+  position: relative;
+}
+
 .tp-nav-link {
   font-size: 14px;
   font-weight: 600;
@@ -114,11 +118,93 @@ body, html {
   align-items: center;
   gap: 4px;
   cursor: pointer;
-  transition: opacity 0.2s;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background-color 0.2s;
 }
 
 .tp-nav-link:hover {
-  opacity: 0.7;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.tp-chevron {
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.tp-nav-item-with-dropdown:hover .tp-chevron {
+  transform: rotate(180deg);
+}
+
+.tp-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px) scale(0.95);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 2px solid #111;
+  border-radius: 12px;
+  box-shadow: 4px 4px 0px #111;
+  width: 320px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.tp-nav-item-with-dropdown:hover .tp-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.tp-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #111;
+  transition: background-color 0.2s;
+}
+
+.tp-dropdown-item:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.tp-dropdown-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: 2px solid #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.tp-dropdown-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.tp-dropdown-text strong {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.tp-dropdown-text span {
+  font-size: 12px;
+  color: #666;
 }
 
 .tp-nav-actions {
@@ -773,4 +859,125 @@ body, html {
   border-top: 2px solid #f0f0f0;
   font-size: 14px;
   color: #999;
+}
+
+/* Modal Section */
+.tp-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.tp-modal-content {
+  background-color: #fff;
+  border: 2px solid #111;
+  border-radius: 12px;
+  box-shadow: 8px 8px 0px #111;
+  padding: 40px;
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+  animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.tp-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #555;
+  transition: color 0.2s;
+}
+
+.tp-modal-close:hover {
+  color: #ef5b68;
+}
+
+.tp-modal-title {
+  font-family: var(--font-display, 'Outfit', sans-serif);
+  font-size: 28px;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 8px;
+}
+
+.tp-modal-subtitle {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.tp-modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tp-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tp-input-group label {
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 12px;
+  font-weight: 700;
+  color: #111;
+  text-transform: uppercase;
+}
+
+.tp-input-group input {
+  font-family: var(--font-sans, 'Inter', sans-serif);
+  padding: 12px 16px;
+  border: 2px solid #111;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.tp-input-group input:focus {
+  border-color: #ef5b68;
+  box-shadow: 4px 4px 0px #ef5b68;
+}
+
+.tp-modal-submit {
+  margin-top: 8px;
+  justify-content: center;
+  padding: 14px;
+  font-size: 16px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }

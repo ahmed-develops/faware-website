@@ -1,32 +1,23 @@
-import React, { useState } from 'react';
-import { ChevronDown, Utensils, Store, Cpu, UserCheck, Settings, Check } from 'lucide-react';
+import { useState } from 'react';
+import { ChevronDown, Utensils, Store, Cpu, UserCheck, Settings, Check, X } from 'lucide-react';
 import './TrypostLanding.css';
 
-const TwitterIcon = ({size = 20}) => (
+
+
+const LinkedinIcon = ({ size = 20 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/>
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+    <rect x="2" y="9" width="4" height="12" />
+    <circle cx="4" cy="4" r="2" />
   </svg>
 );
 
-const LinkedinIcon = ({size = 20}) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-    <rect x="2" y="9" width="4" height="12"/>
-    <circle cx="4" cy="4" r="2"/>
-  </svg>
-);
 
-const InstagramIcon = ({size = 20}) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-  </svg>
-);
 
 const TrypostLanding = () => {
   const [isAnnual, setIsAnnual] = useState(true);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
 
   const faqs = [
     { question: "What is TryPost?", answer: "TryPost is an AI-powered social media management platform that leverages agents to plan, write, and schedule your posts automatically." },
@@ -45,23 +36,44 @@ const TrypostLanding = () => {
         <div className="tp-navbar-wrapper">
           <nav className="tp-navbar">
             <div className="tp-logo">
-              <img src="/logo.png" alt="Faware Logo" style={{ height: '32px' }} />
+              <img src="/logo.png" alt="Faware Logo" style={{ height: '50px' }} />
             </div>
 
             <div className="tp-nav-links">
-              <div className="tp-nav-link">
-                MCP <ChevronDown size={14} />
+              <div className="tp-nav-item-with-dropdown">
+                <div className="tp-nav-link">
+                  Features <ChevronDown size={14} className="tp-chevron" />
+                </div>
+                <div className="tp-dropdown-menu">
+                  <a href="#" className="tp-dropdown-item">
+                    <div className="tp-dropdown-icon" style={{ backgroundColor: '#dbeafe' }}><Utensils size={16} color="#2563eb" /></div>
+                    <div className="tp-dropdown-text">
+                      <strong>Back of house</strong>
+                      <span>Inventory & prep automation</span>
+                    </div>
+                  </a>
+                  <a href="#" className="tp-dropdown-item">
+                    <div className="tp-dropdown-icon" style={{ backgroundColor: '#dcfce7' }}><Store size={16} color="#16a34a" /></div>
+                    <div className="tp-dropdown-text">
+                      <strong>Front of house</strong>
+                      <span>Table management & comms</span>
+                    </div>
+                  </a>
+                  <a href="#" className="tp-dropdown-item">
+                    <div className="tp-dropdown-icon" style={{ backgroundColor: '#fef3c7' }}><UserCheck size={16} color="#d97706" /></div>
+                    <div className="tp-dropdown-text">
+                      <strong>Chef Platform</strong>
+                      <span>Custom tailored workflows</span>
+                    </div>
+                  </a>
+                </div>
               </div>
-              {/* <div className="tp-nav-link">
-                Social Networks <ChevronDown size={14} />
-              </div> */}
               <div className="tp-nav-link">Use cases</div>
-              {/* <div className="tp-nav-link">Blog</div> */}
               <div className="tp-nav-link">Pricing</div>
             </div>
 
             <div className="tp-nav-actions">
-              <button className="tp-btn tp-btn-primary">Faware MCP</button>
+              <button className="tp-btn tp-btn-primary">Coming Soon</button>
             </div>
           </nav>
         </div>
@@ -91,8 +103,8 @@ const TrypostLanding = () => {
             schedules a week of posts across every network.
           </p>
 
-          <button className="tp-btn tp-btn-primary tp-hero-cta">
-            Get started now
+          <button className="tp-btn tp-btn-primary tp-hero-cta" onClick={() => setIsWaitlistOpen(true)}>
+            Join Waitlist
           </button>
         </main>
 
@@ -155,7 +167,7 @@ const TrypostLanding = () => {
           <div className="tp-pricing-badge">PRICING</div>
           <h2 className="tp-pricing-title">Simple, transparent pricing</h2>
           <p className="tp-pricing-subtitle" style={{ marginBottom: '32px' }}>Start for free, upgrade when your AI agent needs more power.</p>
-          
+
           <div className="tp-toggle-wrapper" style={{ marginBottom: '64px' }}>
             <span className={`tp-toggle-label ${!isAnnual ? 'active' : 'inactive'}`} onClick={() => setIsAnnual(false)} style={{ cursor: 'pointer' }}>Monthly</span>
             <div className="tp-toggle-switch" onClick={() => setIsAnnual(!isAnnual)}>
@@ -237,8 +249,8 @@ const TrypostLanding = () => {
 
           <div className="tp-faq-list">
             {faqs.map((faq, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className={`tp-faq-item ${openFaq === index ? 'open' : ''}`}
                 onClick={() => setOpenFaq(openFaq === index ? null : index)}
               >
@@ -250,7 +262,7 @@ const TrypostLanding = () => {
                     </svg>
                   </div>
                 </div>
-                
+
                 <div className="tp-faq-answer">
                   <div className="tp-faq-answer-inner">
                     {faq.answer}
@@ -268,16 +280,16 @@ const TrypostLanding = () => {
           <div className="tp-footer-content">
             <div className="tp-footer-brand">
               <div className="tp-logo">
-                <img src="/logo.png" alt="Faware Logo" style={{ height: '32px' }} />
+                <img src="/logo.png" alt="Faware Logo" style={{ height: '100px' }} />
               </div>
               <p>The culinary agentic OS powering the next generation of restaurants.</p>
               <div className="tp-social-links">
-                <a href="#" className="tp-social-link"><TwitterIcon size={20} /></a>
-                <a href="#" className="tp-social-link"><LinkedinIcon size={20} /></a>
-                <a href="#" className="tp-social-link"><InstagramIcon size={20} /></a>
+                {/* <a href="#" className="tp-social-link"><TwitterIcon size={20} /></a> */}
+                <a href="https://linkedin.com/company/faware" className="tp-social-link"><LinkedinIcon size={20} /></a>
+                {/* <a href="#" className="tp-social-link"><InstagramIcon size={20} /></a> */}
               </div>
             </div>
-            
+
             <div className="tp-footer-links">
               <div className="tp-footer-column">
                 <h4>Product</h4>
@@ -306,6 +318,33 @@ const TrypostLanding = () => {
           </div>
         </footer>
       </div>
+
+      {/* Waitlist Modal */}
+      {isWaitlistOpen && (
+        <div className="tp-modal-overlay" onClick={() => setIsWaitlistOpen(false)}>
+          <div className="tp-modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="tp-modal-close" onClick={() => setIsWaitlistOpen(false)}>
+              <X size={20} />
+            </button>
+            <h2 className="tp-modal-title">Join the Waitlist</h2>
+            <p className="tp-modal-subtitle">Be the first to know when Faware is ready for you.</p>
+            
+            <form className="tp-modal-form" onSubmit={(e) => { e.preventDefault(); alert("Thanks for joining!"); setIsWaitlistOpen(false); }}>
+              <div className="tp-input-group">
+                <label>Full Name</label>
+                <input type="text" placeholder="Gordon Ramsay" required />
+              </div>
+              <div className="tp-input-group">
+                <label>Email Address</label>
+                <input type="email" placeholder="gordon@kitchen.com" required />
+              </div>
+              <button type="submit" className="tp-btn tp-btn-primary tp-modal-submit">
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
