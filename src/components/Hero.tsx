@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const TYPEWRITER_WORDS = ["restaurant", "kitchen", "cafe"];
+const TYPEWRITER_WORDS = ["culinary", "kitchen", "cafe"];
 
 interface HeroProps {
   onOpenWaitlist: () => void;
@@ -36,8 +36,9 @@ export const Hero = ({ onOpenWaitlist }: HeroProps) => {
   return (
     <main className="tp-hero">
       <h1 className="tp-headline">
-        Run your <span className="tp-typewriter">{currentText}<span className="tp-cursor">|</span></span>ops<br />
-        on autopilot with<span className="tp-underline-wrapper">
+        Run your <span style={{ whiteSpace: 'nowrap' }}><span className="tp-typewriter">{currentText}<span className="tp-cursor">|</span></span>ops</span><br />
+        on autopilot with<br />
+        <span className="tp-underline-wrapper">
           Faware.
           <svg className="tp-underline" viewBox="0 0 400 20" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M2 15 Q 100 5 200 12 T 398 10" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />

@@ -25,6 +25,7 @@ const FawareLanding = () => {
         <hr className="tp-separator" />
         <Footer />
       </div>
+      <div className="tp-hero-fade tp-mobile-only"></div>
       <WaitlistModal isOpen={isWaitlistOpen} onClose={() => setIsWaitlistOpen(false)} />
     </div>
   );

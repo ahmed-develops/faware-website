@@ -12,7 +12,7 @@ export const Faq = () => {
 
   return (
     <section className="tp-faq">
-      <div className="tp-faq-badge">FAQ</div>
+      {/* <div className="tp-faq-badge">FAQ</div> */}
       <h2 className="tp-faq-title">Frequently asked questions</h2>
       <p className="tp-faq-subtitle">The questions we get most. If yours isn't here, ask in support and we'll answer.</p>
 

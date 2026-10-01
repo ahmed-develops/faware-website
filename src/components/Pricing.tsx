@@ -6,7 +6,7 @@ export const Pricing = () => {
 
   return (
     <section className="tp-pricing">
-      <div className="tp-pricing-badge">PRICING</div>
+      {/* <div className="tp-pricing-badge">PRICING</div> */}
       <h2 className="tp-pricing-title">Simple, transparent pricing</h2>
       <p className="tp-pricing-subtitle" style={{ marginBottom: '32px' }}>Start for free, upgrade when your AI agent needs more power.</p>
 
@@ -24,7 +24,7 @@ export const Pricing = () => {
         {/* Free Tier */}
         <div className="tp-pricing-card">
           <div className="tp-pricing-header">
-            <h3>Starter</h3>
+            <h3>Plus</h3>
             <div className="tp-price">
               <span className="currency">$</span>0<span className="period">/mo</span>
             </div>
@@ -63,9 +63,9 @@ export const Pricing = () => {
         {/* Team Tier */}
         <div className="tp-pricing-card">
           <div className="tp-pricing-header">
-            <h3>Agency</h3>
+            <h3>Enterprise</h3>
             <div className="tp-price">
-              <span className="currency">$</span>{isAnnual ? '49' : '99'}<span className="period">/mo</span>
+              <span className="currency">$</span>{isAnnual ? 'Get' : '99'}<span className="period">/Quote</span>
             </div>
             <p>Advanced controls and team workflows.</p>
           </div>
