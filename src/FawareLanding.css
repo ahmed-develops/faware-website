@@ -187,7 +187,6 @@ html {
   -webkit-backdrop-filter: blur(12px);
   border: 2px solid var(--border-color);
   border-radius: 12px;
-  box-shadow: 4px 4px 0px var(--border-color);
   width: 320px;
   padding: 12px;
   display: flex;
@@ -264,7 +263,7 @@ html {
   border-radius: 999px;
   border: 2px solid var(--border-color);
   cursor: pointer;
-  transition: transform 0.1s, box-shadow 0.1s;
+  transition: transform 0.2s;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -273,23 +272,19 @@ html {
 .tp-btn-secondary {
   background-color: var(--card-bg);
   color: var(--main-dark);
-  box-shadow: 2px 2px 0px var(--border-color);
 }
 
 .tp-btn-secondary:active {
   transform: translate(2px, 2px);
-  box-shadow: 0px 0px 0px var(--border-color);
 }
 
 .tp-btn-primary {
   background: linear-gradient(135deg, #ef5b68, #d64e59);
   color: var(--card-bg);
-  box-shadow: 2px 2px 0px var(--border-color);
 }
 
 .tp-btn-primary:active {
   transform: translate(2px, 2px);
-  box-shadow: 0px 0px 0px var(--border-color);
 }
 
 /* Hero Section */
@@ -429,13 +424,11 @@ html {
 .tp-hero-cta {
   font-size: 16px;
   padding: 14px 32px;
-  box-shadow: 4px 4px 0px var(--border-color);
   margin-bottom: 80px;
 }
 
 .tp-hero-cta:active {
   transform: translate(4px, 4px);
-  box-shadow: 0px 0px 0px var(--border-color);
 }
 
 /* AI Logos */
@@ -508,16 +501,14 @@ html {
   border: 2px solid var(--border-color);
   border-radius: 12px;
   padding: 32px 24px;
-  box-shadow: 4px 4px 0px var(--border-color);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s;
 }
 
 .tp-feature-card:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0px var(--border-color);
 }
 
 .tp-feature-icon {
@@ -595,27 +586,23 @@ html {
   border: 2px solid var(--border-color);
   border-radius: 12px;
   padding: 40px 32px;
-  box-shadow: 4px 4px 0px var(--border-color);
   display: flex;
   flex-direction: column;
   position: relative;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s;
 }
 
 .tp-pricing-card:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0px var(--border-color);
 }
 
 .tp-pricing-card.featured {
   border-color: #ef5b68;
-  box-shadow: 4px 4px 0px #ef5b68;
   transform: scale(1.02);
 }
 
 .tp-pricing-card.featured:hover {
   transform: scale(1.02) translate(-2px, -2px);
-  box-shadow: 6px 6px 0px #ef5b68;
 }
 
 .tp-popular-badge {
@@ -758,9 +745,8 @@ html {
   background-color: var(--card-bg);
   border: 2px solid var(--border-color);
   border-radius: 12px;
-  box-shadow: 4px 4px 0px var(--border-color);
   cursor: pointer;
-  transition: transform 0.1s, box-shadow 0.1s;
+  transition: transform 0.2s;
   overflow: hidden;
 }
 
@@ -773,12 +759,10 @@ html {
 
 .tp-faq-item:hover {
   transform: translate(-1px, -1px);
-  box-shadow: 5px 5px 0px var(--border-color);
 }
 
 .tp-faq-item:active {
   transform: translate(2px, 2px);
-  box-shadow: 2px 2px 0px var(--border-color);
 }
 
 .tp-faq-question {
@@ -875,19 +859,16 @@ html {
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  transition: transform 0.2s, box-shadow 0.2s;
-  box-shadow: 2px 2px 0px var(--border-color);
+  transition: transform 0.2s;
 }
 
 .tp-social-link:hover {
   transform: translate(-1px, -1px);
-  box-shadow: 3px 3px 0px var(--border-color);
   color: #ef5b68;
 }
 
 .tp-social-link:active {
   transform: translate(2px, 2px);
-  box-shadow: 0px 0px 0px var(--border-color);
 }
 
 .tp-footer-links {
@@ -955,7 +936,6 @@ html {
   background-color: var(--card-bg);
   border: 2px solid var(--border-color);
   border-radius: 12px;
-  box-shadow: 8px 8px 0px var(--border-color);
   padding: 40px;
   width: 100%;
   max-width: 400px;
@@ -1024,12 +1004,11 @@ html {
   border-radius: 8px;
   font-size: 15px;
   outline: none;
-  transition: box-shadow 0.2s, border-color 0.2s;
+  transition: border-color 0.2s;
 }
 
 .tp-input-group input:focus {
   border-color: #ef5b68;
-  box-shadow: 4px 4px 0px #ef5b68;
 }
 
 .tp-modal-submit {
@@ -1080,7 +1059,6 @@ html {
   justify-content: center;
   margin-bottom: 24px;
   border: 4px solid var(--border-color);
-  box-shadow: 4px 4px 0px var(--border-color);
   animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
@@ -1327,4 +1305,171 @@ html {
 .tp-logo-menu .tp-nav-link:hover {
   background: var(--hover-bg);
   color: var(--accent-color);
+}
+
+/* Carousel Section */
+.tp-carousel-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px 20px;
+  background-color: var(--bg-color);
+  width: 100%;
+}
+
+.tp-pill-nav {
+  display: flex;
+  align-items: center;
+  background-color: rgba(245, 245, 245, 0.8);
+  border-radius: 999px;
+  padding: 4px;
+  margin-bottom: 64px;
+}
+:root.dark .tp-pill-nav {
+  background-color: rgba(30, 30, 30, 0.8);
+}
+
+.tp-pill-btn {
+  padding: 8px 24px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+  background: transparent;
+}
+
+.tp-pill-btn.active {
+  background-color: var(--card-bg);
+  color: var(--main-dark);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.tp-carousel-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 450px;
+  width: 100%;
+  max-width: 1200px;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+.tp-carousel-item {
+  position: absolute;
+  border-radius: 50%;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.tp-carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: filter 0.6s;
+}
+
+.tp-carousel-item.active img {
+  filter: none;
+}
+.tp-carousel-item:not(.active) img {
+  filter: grayscale(100%) opacity(0.7) sepia(0.2);
+}
+
+.tp-carousel-item .watch-btn {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+}
+
+.tp-carousel-item.active:hover .watch-btn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.tp-carousel-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 700px;
+}
+
+.tp-carousel-category {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: var(--text-light);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+.tp-carousel-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  margin-bottom: 12px;
+  width: 100%;
+}
+
+.tp-carousel-title {
+  font-family: var(--font-display, "Outfit", sans-serif);
+  font-size: 32px;
+  font-weight: 500;
+  color: var(--main-dark);
+  margin: 0;
+}
+
+.tp-nav-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: var(--card-bg);
+  cursor: pointer;
+  transition: all 0.2s;
+  color: var(--main-dark);
+}
+:root.dark .tp-nav-arrow {
+  border-color: rgba(255,255,255,0.1);
+}
+
+.tp-nav-arrow:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+:root.dark .tp-nav-arrow:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.tp-carousel-desc {
+  font-size: 18px;
+  color: var(--text-muted);
+  margin-bottom: 48px;
+}
+
+.tp-carousel-footer {
+  font-size: 14px;
+  color: var(--text-light);
 }
